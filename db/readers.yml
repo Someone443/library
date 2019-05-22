@@ -1,0 +1,73 @@
+---
+- !ruby/object:Reader
+  name: Steven Strange
+  email: drstrange@test.com
+  city: New York
+  street: Baker St.
+  house: 107
+- !ruby/object:Reader
+  name: Alex J
+  email: alexj@test.com
+  city: Orlando
+  street: West Str.
+  house: 111
+- !ruby/object:Reader
+  name: Harrison Ford
+  email: hford@test.com
+  city: Toronto
+  street: Green Str.
+  house: 151
+- !ruby/object:Reader
+  name: Orlando Bloom
+  email: bloom@test.com
+  city: Toronto
+  street: Yellow Str.
+  house: 122
+- !ruby/object:Reader
+  name: Steven Strange
+  email: drstrange@test.com
+  city: New York
+  street: Baker St.
+  house: 107
+- !ruby/object:Reader
+  name: Alex J
+  email: alexj@test.com
+  city: Orlando
+  street: West Str.
+  house: 111
+- !ruby/object:Reader
+  name: Harrison Ford
+  email: hford@test.com
+  city: Toronto
+  street: Green Str.
+  house: 151
+- !ruby/object:Reader
+  name: Orlando Bloom
+  email: bloom@test.com
+  city: Toronto
+  street: Yellow Str.
+  house: 122
+- !ruby/object:Reader
+  name: Steven Strange
+  email: drstrange@test.com
+  city: New York
+  street: Baker St.
+  house: 107
+- !ruby/object:Reader
+  name: Alex J
+  email: alexj@test.com
+  city: Orlando
+  street: West Str.
+  house: 111
+- !ruby/object:Reader
+  name: Harrison Ford
+  email: hford@test.com
+  city: Toronto
+  street: Green Str.
+  house: 151
+- !ruby/object:Reader
+  name: Orlando Bloom
+  email: bloom@test.com
+  city: Toronto
+  street: Yellow Str.
+  house: 122

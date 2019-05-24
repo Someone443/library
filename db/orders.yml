@@ -20,7 +20,7 @@
       name: Dan Brown
       bio: Dan Gerhard Brown was born on June 22, 1964, in Exeter, New Hampshire.
   reader: *1
-  date: 2019-05-22
+  date: 2019-05-24
 - !ruby/object:Order
   book: *2
   reader: !ruby/object:Reader
@@ -29,7 +29,7 @@
     city: Orlando
     street: West Str.
     house: 111
-  date: 2019-05-22
+  date: 2019-05-24
 - !ruby/object:Order
   book: &5 !ruby/object:Book
     title: Natalka Poltavka
@@ -40,13 +40,13 @@
     city: Toronto
     street: Green Str.
     house: 151
-  date: 2019-05-22
+  date: 2019-05-24
 - !ruby/object:Order
   book: !ruby/object:Book
     title: Angels & Demons
     author: *4
   reader: *1
-  date: 2019-05-22
+  date: 2019-05-24
 - !ruby/object:Order
   book: *5
   reader: !ruby/object:Reader
@@ -55,118 +55,4 @@
     city: Toronto
     street: Yellow Str.
     house: 122
-  date: 2019-05-22
-- !ruby/object:Order
-  book: &7 !ruby/object:Book
-    title: Eneyida
-    author: &8 !ruby/object:Author
-      name: Ivan Kotliarevsky
-      bio: Ukrainian writer, poet and playwright, regarded as the pioneer of modern
-        Ukrainian literature.
-  reader: &6 !ruby/object:Reader
-    name: Steven Strange
-    email: drstrange@test.com
-    city: New York
-    street: Baker St.
-    house: 107
-  date: 2019-05-21
-- !ruby/object:Order
-  book: !ruby/object:Book
-    title: The Da Vinci Code
-    author: &9 !ruby/object:Author
-      name: Dan Brown
-      bio: Dan Gerhard Brown was born on June 22, 1964, in Exeter, New Hampshire.
-  reader: *6
-  date: 2019-05-22
-- !ruby/object:Order
-  book: *7
-  reader: !ruby/object:Reader
-    name: Alex J
-    email: alexj@test.com
-    city: Orlando
-    street: West Str.
-    house: 111
-  date: 2019-05-22
-- !ruby/object:Order
-  book: &10 !ruby/object:Book
-    title: Natalka Poltavka
-    author: *8
-  reader: !ruby/object:Reader
-    name: Harrison Ford
-    email: hford@test.com
-    city: Toronto
-    street: Green Str.
-    house: 151
-  date: 2019-05-22
-- !ruby/object:Order
-  book: !ruby/object:Book
-    title: Angels & Demons
-    author: *9
-  reader: *6
-  date: 2019-05-22
-- !ruby/object:Order
-  book: *10
-  reader: !ruby/object:Reader
-    name: Orlando Bloom
-    email: bloom@test.com
-    city: Toronto
-    street: Yellow Str.
-    house: 122
-  date: 2019-05-22
-- !ruby/object:Order
-  book: &12 !ruby/object:Book
-    title: Eneyida
-    author: &13 !ruby/object:Author
-      name: Ivan Kotliarevsky
-      bio: Ukrainian writer, poet and playwright, regarded as the pioneer of modern
-        Ukrainian literature.
-  reader: &11 !ruby/object:Reader
-    name: Steven Strange
-    email: drstrange@test.com
-    city: New York
-    street: Baker St.
-    house: 107
-  date: 2019-05-21
-- !ruby/object:Order
-  book: !ruby/object:Book
-    title: The Da Vinci Code
-    author: &14 !ruby/object:Author
-      name: Dan Brown
-      bio: Dan Gerhard Brown was born on June 22, 1964, in Exeter, New Hampshire.
-  reader: *11
-  date: 2019-05-22
-- !ruby/object:Order
-  book: *12
-  reader: !ruby/object:Reader
-    name: Alex J
-    email: alexj@test.com
-    city: Orlando
-    street: West Str.
-    house: 111
-  date: 2019-05-22
-- !ruby/object:Order
-  book: &15 !ruby/object:Book
-    title: Natalka Poltavka
-    author: *13
-  reader: !ruby/object:Reader
-    name: Harrison Ford
-    email: hford@test.com
-    city: Toronto
-    street: Green Str.
-    house: 151
-  date: 2019-05-22
-- !ruby/object:Order
-  book: !ruby/object:Book
-    title: Angels & Demons
-    author: *14
-  reader: *11
-  date: 2019-05-22
-- !ruby/object:Order
-  book: *15
-  reader: !ruby/object:Reader
-    name: Orlando Bloom
-    email: bloom@test.com
-    city: Toronto
-    street: Yellow Str.
-    house: 122
-  date: 2019-05-22
+  date: 2019-05-24

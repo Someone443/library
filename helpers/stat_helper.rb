@@ -4,23 +4,17 @@
 module StatHelper
   def top_readers(app, quantity = 1)
     top_readers = []
-    counts = Hash.new { 0 }
-    app.orders.each do |order|
-      counts[order.reader.email] += 1
-    end
-    counts.sort_by { |_k, v| v }.reverse.slice(0..(quantity - 1))
-          .each { |e| top_readers << e.first }
+    app.orders.group_by { |order| order.reader.email }.values
+       .sort_by { |el| el.count }.reverse.slice(0..(quantity - 1))
+       .each { |e| top_readers << e.first.reader.name }
     top_readers
   end
 
   def top_books(app, quantity = 1)
     top_books = []
-    counts = Hash.new { 0 }
-    app.orders.each do |order|
-      counts[order.book.title] += 1
-    end
-    counts.sort_by { |_k, v| v }.reverse.slice(0..(quantity - 1))
-          .each { |e| top_books << e.first }
+    app.orders.group_by { |order| order.book.title }.values
+       .sort_by { |el| el.count }.reverse.slice(0..(quantity - 1))
+       .each { |e| top_books << e.first.book.title }
     top_books
   end
 

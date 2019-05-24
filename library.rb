@@ -23,28 +23,28 @@ class Library
 
   def new_book(title, author)
     book = Book.new(title, author)
-    @books << book
+    @books << book unless exists?(book, @books)
     save('books', self)
     book
   end
 
   def new_author(name, bio = '')
     author = Author.new(name, bio)
-    @authors << author
+    @authors << author unless exists?(author, @authors)
     save('authors', self)
     author
   end
 
   def new_reader(name, email, city, street, house)
     reader = Reader.new(name, email, city, street, house)
-    @readers << reader
+    @readers << reader unless exists?(reader, @readers)
     save('readers', self)
     reader
   end
 
   def new_order(book, reader, date = Date.today)
     order = Order.new(book, reader, date)
-    @orders << order
+    @orders << order unless exists?(order, @orders)
     save('orders', self)
     order
   end

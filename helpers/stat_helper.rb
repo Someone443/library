@@ -2,27 +2,25 @@
 
 # Custom statistics displaying
 module StatHelper
-  def top_readers(app, quantity = 1)
-    top_readers = []
-    app.orders.group_by { |order| order.reader.email }.values
-       .sort_by { |el| el.count }.reverse.slice(0..(quantity - 1))
-       .each { |e| top_readers << e.first.reader.name }
-    top_readers
+  def top_readers(orders, quantity = 1)
+    orders.group_by(&:reader).values
+          .sort_by { |items| -items.count }
+          .first(quantity)
+          .map { |order| order.first.reader.name }
   end
 
-  def top_books(app, quantity = 1)
-    top_books = []
-    app.orders.group_by { |order| order.book.title }.values
-       .sort_by { |el| el.count }.reverse.slice(0..(quantity - 1))
-       .each { |e| top_books << e.first.book.title }
-    top_books
+  def top_books(orders, quantity = 1)
+    orders.group_by(&:book).values
+          .sort_by { |items| -items.count }
+          .first(quantity)
+          .map { |order| order.first.book.title }
   end
 
-  def top_books_readers_count(app, quantity = 3)
-    top_titles = top_books(app, quantity)
+  def top_books_readers_count(orders, quantity = 3)
+    top_titles = top_books(orders, quantity)
     readers = []
     top_titles.each do |top_title|
-      app.orders.each do |order|
+      orders.each do |order|
         readers << order.reader.email if order.book.title.eql?(top_title)
       end
     end

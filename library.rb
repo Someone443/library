@@ -1,19 +1,13 @@
 # frozen_string_literal: true
 
-require './models/book.rb'
-require './models/author.rb'
-require './models/reader.rb'
-require './models/order.rb'
-require './helpers/db_helper.rb'
-require './helpers/stat_helper.rb'
-require './helpers/errors/validation_error.rb'
-require 'yaml'
-require 'date'
+require './config/setup.rb'
 
 # Main Library class
 class Library
   include DbHelper
   include StatHelper
+
+  ENTITIES = { author: Author, book: Book, reader: Reader, order: Order }.freeze
 
   attr_reader :books, :authors, :readers, :orders
 
@@ -21,45 +15,24 @@ class Library
     load_library
   end
 
-  def new_book(title, author)
-    book = Book.new(title, author)
-    @books << book unless exists?(book, @books)
-    save('books', self)
-    book
-  end
-
-  def new_author(name, bio = '')
-    author = Author.new(name, bio)
-    @authors << author unless exists?(author, @authors)
-    save('authors', self)
-    author
-  end
-
-  def new_reader(name, email, city, street, house)
-    reader = Reader.new(name, email, city, street, house)
-    @readers << reader unless exists?(reader, @readers)
-    save('readers', self)
-    reader
-  end
-
-  def new_order(book, reader, date = Date.today)
-    order = Order.new(book, reader, date)
-    @orders << order unless exists?(order, @orders)
-    save('orders', self)
-    order
+  def new_entity(type, *params)
+    entity = ENTITIES.fetch(type).new(*params)
+    storage = public_send("#{type}s")
+    storage << entity unless exists?(entity, storage)
+    save("#{type}s", storage)
+    entity
   end
 
   def load_library
-    @books = load('books') || []
-    @authors = load('authors') || []
-    @readers = load('readers') || []
-    @orders = load('orders') || []
+    @books = load('books')
+    @authors = load('authors')
+    @readers = load('readers')
+    @orders = load('orders')
   end
 
   def save_library
-    save('authors', self)
-    save('books', self)
-    save('readers', self)
-    save('orders', self)
+    ENTITIES.each_key do |entity|
+      save("#{entity}s", public_send("#{entity}s"))
+    end
   end
 end

@@ -1,14 +1,11 @@
 # frozen_string_literal: true
 
 # The library contains the next entities: Authors, Books, Readers, and Orders.
-class Reader
+class Reader < Entity
   attr_reader :name, :email, :city, :street, :house
 
-  def initialize(name, email, city, street, house)
-    if ([name, email, city, street].any? { |a| a == '' || !(a.is_a? String) }) ||
-       !((house.is_a? Integer) && house.positive?)
-      raise ValidationError
-    end
+  def initialize(name:, email:, city:, street:, house:)
+    validate(name, email, city, street, house)
 
     @name = name
     @email = email
@@ -19,5 +16,10 @@ class Reader
 
   def to_s
     "Name: #{name}. Email: #{email}. Address: #{city}, #{street}, #{house}."
+  end
+
+  def validate(name, email, city, street, house)
+    not_empty_strings(name, email, city, street)
+    positive_integer(house)
   end
 end

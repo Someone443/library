@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
 # The library contains the next entities: Authors, Books, Readers, and Orders.
-class Order
+class Order < Entity
   attr_reader :book, :reader, :date
 
   def initialize(book, reader, date = Date.today)
-    if !(book.is_a? Book) || !(reader.is_a? Reader) || !(date.is_a? Date)
-      raise ValidationError
-    end
+    validate(book, reader, date)
 
     @book = book
     @reader = reader
@@ -16,5 +14,11 @@ class Order
 
   def to_s
     "Book: #{book}. Reader: #{reader}. Date: #{date}."
+  end
+
+  def validate(book, reader, date)
+    valid_class(book, Book)
+    valid_class(reader, Reader)
+    valid_class(date, Date)
   end
 end

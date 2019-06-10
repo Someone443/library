@@ -1,0 +1,58 @@
+---
+- !ruby/object:Order
+  book: &2 !ruby/object:Book
+    title: Eneyida
+    author: &3 !ruby/object:Author
+      name: Ivan Kotliarevsky
+      bio: Ukrainian writer, poet and playwright, regarded as the pioneer of modern
+        Ukrainian literature.
+  reader: &1 !ruby/object:Reader
+    name: Steven Strange
+    email: drstrange@test.com
+    city: New York
+    street: Baker St.
+    house: 107
+  date: 2019-05-21
+- !ruby/object:Order
+  book: !ruby/object:Book
+    title: The Da Vinci Code
+    author: &4 !ruby/object:Author
+      name: Dan Brown
+      bio: Dan Gerhard Brown was born on June 22, 1964, in Exeter, New Hampshire.
+  reader: *1
+  date: 2019-05-24
+- !ruby/object:Order
+  book: *2
+  reader: !ruby/object:Reader
+    name: Alex J
+    email: alexj@test.com
+    city: Orlando
+    street: West Str.
+    house: 111
+  date: 2019-05-24
+- !ruby/object:Order
+  book: &5 !ruby/object:Book
+    title: Natalka Poltavka
+    author: *3
+  reader: !ruby/object:Reader
+    name: Harrison Ford
+    email: hford@test.com
+    city: Toronto
+    street: Green Str.
+    house: 151
+  date: 2019-05-24
+- !ruby/object:Order
+  book: !ruby/object:Book
+    title: Angels & Demons
+    author: *4
+  reader: *1
+  date: 2019-05-24
+- !ruby/object:Order
+  book: *5
+  reader: !ruby/object:Reader
+    name: Orlando Bloom
+    email: bloom@test.com
+    city: Toronto
+    street: Yellow Str.
+    house: 122
+  date: 2019-05-24

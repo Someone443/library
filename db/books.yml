@@ -1,0 +1,18 @@
+---
+- !ruby/object:Book
+  title: Eneyida
+  author: &1 !ruby/object:Author
+    name: Ivan Kotliarevsky
+    bio: Ukrainian writer, poet and playwright, regarded as the pioneer of modern
+      Ukrainian literature.
+- !ruby/object:Book
+  title: The Da Vinci Code
+  author: &2 !ruby/object:Author
+    name: Dan Brown
+    bio: Dan Gerhard Brown was born on June 22, 1964, in Exeter, New Hampshire.
+- !ruby/object:Book
+  title: Natalka Poltavka
+  author: *1
+- !ruby/object:Book
+  title: Angels & Demons
+  author: *2
